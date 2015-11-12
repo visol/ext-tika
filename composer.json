@@ -1,17 +1,11 @@
 {
-	
-	"name": "apachesolrfortypo3/tika",
+	"name": "apache-solr-for-typo3/tika",
 	"type": "typo3-cms-extension",
 	"description": "Apache Tika for TYPO3",
 	"version": "2.0.0-dev",
 	"keywords": ["typo3", "cms", "tika", "meta data", "language", "text", "extraction"],
 	"homepage": "http://www.typo3-solr.com",
 	"license": "GPL-2.0+",
-	"source": {
-		"type": "git",
-		"url": "git://git.typo3.org/TYPO3CMS/Extensions/tika.git",
-		"reference": "master"
-	},
 	"authors": [
 		{
 			"name": "Ingo Renner",
@@ -21,35 +15,37 @@
 	],
 	"support": {
 		"email": "typo3-project-solr@lists.typo3.org",
-		"issues": "https://forge.typo3.org/projects/extension-tika/issues",
+		"issues": "https://github.com/TYPO3-Solr/ext-tika/issues",
 		"forum": "http://forum.typo3.org/index.php/f/53/",
 		"wiki": "https://forge.typo3.org/projects/extension-tika/wiki",
-		"source": "https://forge.typo3.org/projects/extension-tika/repository"
+		"source": "https://github.com/TYPO3-Solr/ext-tika"
 	},
-	"repositories": [
-		{
-			"type": "composer",
-			"url": "http://composer.typo3.org/"
-		}
-	],
 	"replace": {
-		"typo3/cms": "*"
+		"tika": "self.version",
+		"typo3-ter/tika": "self.version"
 	},
 	"require": {
-		"php": ">5.3.7,~5.5.0",
-		"typo3/cms": "~6.2.0"
+		"php": "~5.3 <6.0",
+		"typo3/cms-core": "~6.2.15||>=7.4.0,<8.0"
 	},
-	"require-dev": {
-		"phpunit/phpunit": "~4.5.0"
+	"config": {
+		"optimize-autoloader": true,
+		"vendor-dir": ".Build/vendor",
+		"bin-dir": ".Build/bin"
 	},
-	"autoload": {
-		"psr-4": {
-			"ApacheSolrForTypo3\\Tika\\": "Classes/"
-		}
+	"scripts": {
+		"post-autoload-dump": [
+			"mkdir -p .Build/Web/typo3conf/ext/",
+			"[ -L .Build/Web/typo3conf/ext/tika ] || ln -snvf ../../../../. .Build/Web/typo3conf/ext/tika"
+		]
 	},
-	"autoload-dev": {
-		"psr-4": {
-			"ApacheSolrForTypo3\\Tika\\Tests\\": "Tests/"
+	"extra": {
+		"branch-alias": {
+			"dev-master": "2.0.x-dev"
+		},
+		"typo3/cms": {
+			"cms-package-dir": "{$vendor-dir}/typo3/cms",
+			"web-dir": ".Build/Web"
 		}
 	}
 }
