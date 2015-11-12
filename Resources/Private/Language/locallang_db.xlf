@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-05-13T08:48:41Z" product-name="tika">
+		<header/>
+		<body>
+
+			<trans-unit id="tx_tika_domain_model_tika">
+				<source>Tika</source>
+			</trans-unit>
+			<trans-unit id="tx_tika_domain_model_tika.tika_content">
+				<source>Tika Content</source>
+			</trans-unit>
+			
+			<trans-unit id="sys_file_metadata.tx_extbase_type.Tx_Tika_Tika">
+				<source>tika Tika</source>
+			</trans-unit>
+			
+		</body>
+	</file>
+</xliff>

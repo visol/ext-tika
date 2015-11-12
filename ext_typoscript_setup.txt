@@ -1,0 +1,15 @@
+
+config.tx_extbase{
+    persistence{
+        classes{
+
+            ApacheSolrForTypo3\Tika\Domain\Model\Tika {
+                mapping {
+                    tableName = sys_file_metadata
+                    recordType = Tx_Tika_Tika
+                }
+            }
+            
+    	}
+    }
+}
